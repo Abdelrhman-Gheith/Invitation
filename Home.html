@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دعوة زفاف</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card">
+    <img src="/1img.jpg" alt="Wedding Invitation" class="image" />
+
+    <div id="countdown" class="countdown">
+    </div>
+    <br><br><br>
+    <img src="/img 3 .jpg" class="image-second">
+    <br><br><br>
+    <img src="/2_img.jpg" alt="Name" class="image-second" />
+    <a href="https://maps.app.goo.gl/L8AocHT2PZVqkEgD8" class="button">Location Map </a>
+  </div>
+
+  <!-- صوت يعمل تلقائياً -->
+  <audio autoplay >
+    <source src="/VID-20250430-WA0016.mp3" type="audio/mpeg"  />
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+  <script>
+    // التاريخ المستهدف (عدله حسب موعد الفرح)
+    const targetDate = new Date("2025-05-14").getTime();
+  
+    const countdown = document.getElementById("countdown");
+  
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+  
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "تمت المناسبة ❤️";
+        return;
+      }
+  
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      countdown.innerHTML = `Time left: ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+
+    }, 1000);
+  </script>
+  
+</body>
+</html>
