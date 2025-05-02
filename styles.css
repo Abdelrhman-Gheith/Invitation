@@ -1,0 +1,249 @@
+/* إزالة المساحات الافتراضية من المتصفح */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden; /* يمنع أي سكرول أفقي */
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f3f4f1;
+    color: #333;
+    
+  }
+  
+  .card {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: relative; /* لضمان أن الزر يظهر بشكل صحيح */
+  }
+  
+  .card h1 {
+    font-size: 2.5em;
+    color: #a77b5a;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1.2em;
+    line-height: 1.8;
+  }
+  
+  .names {
+    font-size: 2em;
+    color: #8b5e3c;
+    margin: 20px 0;
+  }
+  
+  .date {
+    font-size: 1.4em;
+    margin-top: 15px;
+    color: #555;
+  }
+  
+  .location {
+    font-size: 1.2em;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0; /* إزالة الهامش السفلي للصورة */
+  }
+  
+  .image-second {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: -1.5cm;
+  }
+  
+  .button {
+    background-color: #b8b6b4;
+    color: rgb(0, 0, 0);
+    padding: 8px 16px; /* تقليل الحجم */
+    text-align: center;
+    font-size: 0.9em; /* تقليل حجم الخط */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 10px; /* ترك مسافة صغيرة أسفل الصورة */
+    left: 50%;
+    transform: translateX(-50%); /* توسيط الزر */
+    margin-bottom: 150px; /* تقليل المسافة السفلية */
+    
+  }
+  
+  .button:hover,
+  .button:focus,
+  .button:active {
+    background-color: #ffffff;
+    box-shadow: none;
+    transform: translateX(-50%) scale(1); /* الحفاظ على الحجم ثابتًا */
+  }
+  
+  @media (max-width: 600px) {
+    .card {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .card h1 {
+      font-size: 2em;
+    }
+  
+    .names {
+      font-size: 1.5em;
+    }
+  
+    .button {
+      width: auto; /* الزر يكون بحجم صغير على الهواتف */
+      padding: 6px 12px; /* تقليل الحجم أكثر على الهواتف */
+    }
+  }
+  
+  .countdown {
+    background-color: #d8d5d1;
+    padding: 3px 6px; /* تقليل البادينج */
+    border-radius: 8px;
+    font-size: 0.9em; /* تصغير الخط */
+    color: #0a0203;
+    margin: 10px auto; /* تقليل المسافة الخارجية */
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* ظل أخف */
+    width: fit-content;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .full-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يجعل الصورة تغطي الصفحة */
+    z-index: -1;
+  }
+  
+  .start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a77b5a;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .map-button {
+    position: absolute;
+    bottom: 15px; /* غيّر الرقم حسب مكان الزر */
+    right: 19px;  /* غيّر الرقم حسب المكان المطلوب */
+    width: 100px;  /* تصغير الزر */
+    height: 100px;
+    margin-top: -20cm;
+    margin-bottom: -1cm;
+    margin-left: 20cm;
+    margin-right: -3cm;
+  }
+  
+  .map-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px; /* اختياري، يجعل الزر دائريًا قليلًا */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); /* ظل خفيف للزر */
+    margin: 5cm; 
+    margin-top: -12cm;
+    margin-bottom: -1cm;
+  }
+  .video {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: -1.5cm;
+  }
+  
+
+  .stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+  }
+  
+  .star {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
