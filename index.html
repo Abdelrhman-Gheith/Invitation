@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kareem & Hind</title>
 
-  <!-- خطوط وأيقونات -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <!-- ملف التنسيق الخارجي -->
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,33 +18,33 @@
     <img src="/images/IMG-20250503-WA0020.jpg" alt="Home Image" class="image" />
     <img src="/images/IMG-20250503-WA0012.jpg" alt="Home Image" class="image" />
 
-    <!-- فيديو صامت يعمل تلقائيًا -->
+  
     <video id="myVideo" class="video" muted autoplay loop playsinline preload="auto">
       <source src="/images/VID-20250503-WA0014.mp4" type="video/mp4">
       المتصفح لا يدعم تشغيل الفيديو.
     </video>
 
-    <!-- زر الدخول -->
+    
     <a href="Home.html" class="button">
       Tap to start <span class="triangle"></span>
     </a>
   </div>
 
-  <!-- عنصر الصوت -->
+  
   <audio id="myAudio">
     <source src="/images/VID-20250503-WA0014.mp3" type="audio/mpeg" />
     متصفحك لا يدعم تشغيل الصوت.
   </audio>
 
-  <!-- خلفية النجوم -->
+  
   <div class="stars-container"></div>
 
-  <!-- زر الصوت الطائر -->
+  
   <button class="floating-button" id="soundButton">
     <i class="fas fa-volume-up"></i>
   </button>
 
-  <!-- سكربت النجوم -->
+  
   <script>
     const container = document.querySelector('.stars-container');
 
@@ -62,7 +62,7 @@
     setInterval(createStar, 300);
   </script>
 
-  <!-- سكربت تشغيل الفيديو والصوت بعد تفاعل -->
+  
   <script>
     const video = document.getElementById('myVideo');
     const audio = document.getElementById('myAudio');
@@ -78,7 +78,7 @@
     document.addEventListener('touchstart', enableMedia);
   </script>
 
-  <!-- سكربت زر الصوت -->
+  
   <script>
     const soundButton = document.getElementById('soundButton');
 
