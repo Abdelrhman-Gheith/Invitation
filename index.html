@@ -13,12 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <script>
-    const vid = document.getElementById('myVideo');
-    vid.onerror = function () {
-      alert('حدث خطأ أثناء تحميل الفيديو!');
-    };
-  </script>
+
   
   <div class="card">
     <img src="/images/IMG-20250503-WA0020.jpg" alt="Home Image" class="image" />
@@ -43,11 +38,10 @@
     </a>
     
   </div>
-    <audio autoplay >
+  <audio autoplay >
     <source src="/images/VID-20250503-WA0014.mp3" type="audio/mpeg"  />
     متصفحك لا يدعم تشغيل الصوت.
-    </audio>
-  
+  </audio>
   <div class="stars-container"></div>
 
   <script>
@@ -71,6 +65,17 @@
 
   setInterval(createStar, 300);
 </script>
+<script>const audio = document.querySelector('audio');
+
+  function enableAudio() {
+    audio.play();
+    document.removeEventListener('click', enableAudio);
+    document.removeEventListener('touchstart', enableAudio);
+  }
+  
+  document.addEventListener('click', enableAudio);
+  document.addEventListener('touchstart', enableAudio);
+  </script>
 
 </body>
 </html>
