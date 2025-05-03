@@ -10,31 +10,34 @@
   <div id="countdown" class="countdown">
   </div>
   <div class="card">
-    <img src="/Invitiation/IMG-20250502-WA0087.jpg" alt="Wedding Invitation" class="image" />
+    <img src="./Invitiation/IMG-20250502-WA0087.jpg" alt="Wedding Invitation" class="image" />
     
     <br><br><br>
     <div class="image-container">
-      <img src="/Invitiation/IMG-20250502-WA0082.jpg" class="image-second" />
+      <img src="./Invitiation/IMG-20250502-WA0082.jpg" class="image-second" />
     
       
       <a href="https://maps.app.goo.gl/L8AocHT2PZVqkEgD8" class="map-button">
-        <img src="/Invitiation/IMG-20250502-WA0109.jpg" alt="Location Map" />
+        <img src="./Invitiation/IMG-20250502-WA0109.jpg" alt="Location Map" />
       </a>
     </div>
     
     
     
     <br><br><br>
-    <img src="/Invitiation/IMG-20250502-WA0078.jpg" alt="Name" class="image-second" />
+    <img src="./Invitiation/IMG-20250502-WA0078.jpg" alt="Name" class="image-second" />
   </div>
-
-  <audio autoplay >
-    <source src="/images/AUD-20250503-WA0055.mp3" type="audio/mpeg"  />
-    متصفحك لا يدعم تشغيل الصوت.
-  </audio>
 
   <div class="stars-container"></div>
 
+  <audio id="backgroundAudio" autoplay playsinline muted preload="auto">
+    <source src="./images/AUD-20250503-WA0004.mp3" type="audio/mpeg" />
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+
+  <script>
+  
+  </script>
 
   <script>
     const targetDate = new Date("2025-05-14").getTime();
@@ -80,6 +83,39 @@
     }
   
     setInterval(createStar, 300);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('backgroundAudio');
+      
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      if (!isMobile) {
+        audio.muted = false;
+      } else {
+        audio.muted = true;
+      }
+      
+      const initialPlayPromise = audio.play();
+      if (initialPlayPromise !== undefined) {
+        initialPlayPromise.catch(error => {
+          console.error("Unmuted autoplay failed:", error);
+          audio.muted = true;
+          audio.play().catch(err => console.error("Muted autoplay also failed:", err));
+        });
+      }
+      
+      function enableAudio() {
+        audio.muted = false;
+        audio.play().catch(error => {
+          console.error("Audio play failed:", error);
+        });
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+      }
+      
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('touchstart', enableAudio);
+    });
   </script>
   
   
