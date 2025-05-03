@@ -13,19 +13,36 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <script>
+    const vid = document.getElementById('myVideo');
+    vid.onerror = function () {
+      alert('حدث خطأ أثناء تحميل الفيديو!');
+    };
+  </script>
+  
   <div class="card">
     <img src="/images/IMG-20250503-WA0020.jpg" alt="Home Image" class="image" />
     <img src="/images/IMG-20250503-WA0012.jpg" alt="Home Image" class="image" />
   
 
 <!-- لو عايز المستخدم يشوف الفيديو بدون تحكم -->
-  
+<video id="myVideo"
+       class="video"
+       autoplay
+       muted
+       loop
+       playsinline
+       preload="auto">
+  <source src="/images/VID-20250503-WA0014.mp4" type="video/mp4">
+  المتصفح لا يدعم تشغيل الفيديو.
+</video>
+
+
     <a href="Home.html" class="button">
       Tap to start <span class="triangle"></span>
     </a>
     
   </div>
-<video id="myVideo" class="video" src="/Invitiation/VID-20250503-WA0006.mp4" autoplay muted loop playsinline></video>
   <div class="stars-container"></div>
 
   <script>
@@ -49,7 +66,7 @@
 
   setInterval(createStar, 300);
 </script>
-<!-- <script>
+<script>
   const video = document.getElementById('myVideo');
 
   function enableSound() {
@@ -63,7 +80,7 @@
   // نسمع أول تفاعل للمستخدم
   document.addEventListener('click', enableSound);
   document.addEventListener('touchstart', enableSound);
-</script> -->
+</script>
 
 </body>
 </html>
