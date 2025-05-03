@@ -1,6 +1,4 @@
-/* =====================================================
-   الإعدادات العامة لإزالة الهوامش الافتراضية وتنسيق الصندوق
-===================================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,22 +6,18 @@
 }
 
 html, body {
-  overflow-x: hidden; /* يمنع تمرير أفقي */
+  overflow-x: hidden; 
   height: 100%;
 }
 
-/* =====================================================
-   تنسيق عام للجسم
-===================================================== */
+
 body {
   font-family: 'Arial', sans-serif;
   background: #f3f4f1;
   color: #333;
 }
 
-/* =====================================================
-   كرت التصميم الأساسي
-===================================================== */
+
 .card {
   max-width: 500px;
   margin: 40px auto;
@@ -63,9 +57,7 @@ body {
   margin-top: 10px;
 }
 
-/* =====================================================
-   تنسيقات الصور داخل الكرت
-===================================================== */
+
 .image {
   width: 100%;
   height: auto;
@@ -82,9 +74,7 @@ body {
   margin-top: -50px;
 }
 
-/* =====================================================
-   زر التفاعل الأساسي (start أو غيره)
-===================================================== */
+
 .button {
   position: absolute;
   top: 64%;
@@ -92,8 +82,8 @@ body {
   transform: translate(-50%, -50%);
   padding: 5px 10px;
   font-size: 1.2em;
-  font-family: 'Cairo', sans-serif; /* ← خط مميز */
-  font-weight: 700; /* ← خط سميك */
+  font-family: 'Cairo', sans-serif; 
+  font-weight: 700; 
   color: white;
   background-color: #777777;
   border: none;
@@ -103,7 +93,7 @@ body {
   z-index: 1;
   overflow: hidden;
 
-  /* تحسينات شكل الزر */
+  
   box-shadow:
     0 0 5px #ffffff,
     0 0 10px #cccccc,
@@ -116,7 +106,7 @@ body {
   animation: pulse 4s infinite;
 }
 
-/* تأثير خلفي متدرج متحرك */
+
 .button::before {
   content: "";
   position: absolute;
@@ -131,7 +121,7 @@ body {
   animation: borderMove 8s ease infinite;
 }
 
-/* لمعة عابرة على الزر */
+
 .button::after {
   content: '';
   position: absolute;
@@ -145,7 +135,7 @@ body {
   animation: shine 3s infinite;
 }
 
-/* تأثير عند التفاعل مع الزر */
+
 .button:hover,
 .button:focus,
 .button:active {
@@ -153,14 +143,14 @@ body {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-/* حركة الخلفية المتدرجة */
+
 @keyframes borderMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* حركة اللمعة */
+
 @keyframes shine {
   0% { left: -75%; }
   100% { left: 125%; }
@@ -173,18 +163,13 @@ body {
   100% { transform: scale(1); }
 }
 
-/* =====================================================
-   أماكن مخصصة لنقل الزر (اختياري)
-===================================================== */
 .button.move-top    { top: -50px; }
 .button.move-bottom { top: 6000px; }
 .button.move-left   { left: -500px; }
 .button.move-right  { left: -80%; }
 
 
-/* =====================================================
-   Media Query - تحسين العرض على الشاشات الصغيرة
-===================================================== */
+
 @media (max-width: 600px) {
   .button {
     width: auto;
@@ -205,9 +190,6 @@ body {
   }
 }
 
-/* =====================================================
-   صندوق العد التنازلي Countdown
-===================================================== */
 .countdown {
   background-color: #d8d5d1;
   padding: 3px 6px;
@@ -227,9 +209,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* =====================================================
-   خلفية ممتدة للشاشة بالكامل
-===================================================== */
+
 .full-screen {
   position: relative;
   width: 100%;
@@ -246,7 +226,7 @@ body {
   z-index: -1;
 }
 
-/* زر البداية الرئيسي */
+
 .start-button {
   position: absolute;
   top: 50%; left: 50%;
@@ -260,9 +240,7 @@ body {
   text-decoration: none;
 }
 
-/* =====================================================
-   صورة فوقها زر الخريطة
-===================================================== */
+
 .image-container {
   position: relative;
   display: inline-block;
@@ -285,9 +263,7 @@ body {
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-/* =====================================================
-   الفيديو
-===================================================== */
+
 .video {
   display: block;
   width: 100%;
@@ -296,9 +272,7 @@ body {
   margin-top: -8px;
 }
 
-/* =====================================================
-   النجوم المتساقطة
-===================================================== */
+
 .stars-container {
   position: fixed;
   top: 0; left: 0;
@@ -329,9 +303,9 @@ body {
 }
 
 .button i {
-  margin-left: 10px;  /* المسافة بين النص والأيقونة */
-  font-size: 1.5em;    /* زيادة حجم الأيقونة */
-  vertical-align: middle;  /* لضبط الأيقونة مع النص */
+  margin-left: 10px;  
+  font-size: 1.5em;    
+  vertical-align: middle;  
 }
 
 .triangle {
@@ -341,17 +315,9 @@ body {
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 10px solid white; /* ← لون المثلث */
+  border-left: 10px solid white; 
 }
 
-/* .video {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  object-fit: cover;
-} */
 
 .floating-button {
   position: fixed;
