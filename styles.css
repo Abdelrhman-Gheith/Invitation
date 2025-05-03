@@ -249,10 +249,10 @@ body {
 
 .map-button {
   position: absolute;
-  bottom: 15px;
-  right: 130px;
-  width: 100px;
-  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
 }
 
 .map-button img {

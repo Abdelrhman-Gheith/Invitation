@@ -15,30 +15,20 @@
 <body>
 
   <div class="card">
-    <img src="/images/IMG-20250503-WA0020.jpg" alt="Home Image" class="image" />
-    <img src="/images/IMG-20250503-WA0012.jpg" alt="Home Image" class="image" />
+    <img src="./images/IMG-20250503-WA0020.jpg" alt="Home Image" class="image" />
+    <img src="./images/IMG-20250503-WA0012.jpg" alt="Home Image" class="image" />
 
-  
-    <video id="myVideo" class="video" muted autoplay loop playsinline preload="auto">
-      <source src="/images/VID-20250503-WA0014.mp4" type="video/mp4">
+    <video id="myVideo" class="video" autoplay loop playsinline preload="auto">
+      <source src="./images/VID-20250503-WA0014.mp4" type="video/mp4">
       المتصفح لا يدعم تشغيل الفيديو.
     </video>
-
     
     <a href="Home.html" class="button">
       Tap to start <span class="triangle"></span>
     </a>
   </div>
-
-  
-  <audio id="myAudio">
-    <source src="/images/VID-20250503-WA0014.mp3" type="audio/mpeg" />
-    متصفحك لا يدعم تشغيل الصوت.
-  </audio>
-
   
   <div class="stars-container"></div>
-
   
   <button class="floating-button" id="soundButton">
     <i class="fas fa-volume-up"></i>
@@ -64,32 +54,48 @@
 
   
   <script>
-    const video = document.getElementById('myVideo');
-    const audio = document.getElementById('myAudio');
-
-    function enableMedia() {
-      video.play().catch(err => console.error('Video Play Error:', err));
-      audio.play().catch(err => console.error('Audio Play Error:', err));
-      document.removeEventListener('click', enableMedia);
-      document.removeEventListener('touchstart', enableMedia);
-    }
-
-    document.addEventListener('click', enableMedia);
-    document.addEventListener('touchstart', enableMedia);
-  </script>
-
-  
-  <script>
-    const soundButton = document.getElementById('soundButton');
-
-    soundButton.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        soundButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('myVideo');
+      const soundButton = document.getElementById('soundButton');
+      
+      // Check if device is mobile
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      // Set initial muted state based on device
+      if (!isMobile) {
+        // Desktop: Start unmuted
+        video.muted = false;
       } else {
-        audio.pause();
-        soundButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        // Mobile: Start muted
+        video.muted = true;
       }
+      
+      // Try to autoplay video
+      const videoPlayPromise = video.play();
+      if (videoPlayPromise !== undefined) {
+        videoPlayPromise.catch(error => {
+          console.error("Video autoplay failed:", error);
+          // If autoplay fails, mute and try again (common fallback for browsers)
+          video.muted = true;
+          video.play().catch(err => console.error("Second video play attempt failed:", err));
+        });
+      }
+      
+      // Function to enable video on user interaction
+      function enableMedia() {
+        video.muted = false;
+        video.play().catch(err => console.error('Video Play Error:', err));
+        
+        document.removeEventListener('click', enableMedia);
+        document.removeEventListener('touchstart', enableMedia);
+      }
+      
+      // Add interaction listeners
+      document.addEventListener('click', enableMedia);
+      document.addEventListener('touchstart', enableMedia);
+      
+      // Hide sound button as there's no audio
+      soundButton.style.display = 'none';
     });
   </script>
 
