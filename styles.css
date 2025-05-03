@@ -79,7 +79,7 @@ body {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-top: -90px;
+  margin-top: -50px;
 }
 
 /* =====================================================
@@ -272,7 +272,7 @@ body {
 .map-button {
   position: absolute;
   bottom: 15px;
-  right: 19px;
+  right: 130px;
   width: 100px;
   height: 100px;
 }
