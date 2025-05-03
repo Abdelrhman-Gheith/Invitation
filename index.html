@@ -66,21 +66,6 @@
 
   setInterval(createStar, 300);
 </script>
-<script>
-  const video = document.getElementById('myVideo');
-
-  function enableSound() {
-    video.muted = false;
-    video.play();
-    // إزالة المستمع بعد أول تفاعل
-    document.removeEventListener('click', enableSound);
-    document.removeEventListener('touchstart', enableSound);
-  }
-
-  // نسمع أول تفاعل للمستخدم
-  document.addEventListener('click', enableSound);
-  document.addEventListener('touchstart', enableSound);
-</script>
 
 </body>
 </html>
