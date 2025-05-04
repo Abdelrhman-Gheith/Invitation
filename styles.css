@@ -343,3 +343,23 @@ body {
   from { transform: translateY(0); }
   to { transform: translateY(-10px); }
 }
+.sound-alert {
+  position: fixed;
+  bottom: 75px; /* فوق الزر بـ 55px تقريبا */
+  right: 20px;
+  background-color: #ffc;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 10000;
+  animation: fadeOut 4s forwards;
+  white-space: nowrap;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
