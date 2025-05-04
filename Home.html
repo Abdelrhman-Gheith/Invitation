@@ -34,7 +34,11 @@
   </audio>
 
   <div class="stars-container"></div>
-
+  <!-- زر الصوت الطائر -->
+  <button class="floating-button" id="soundButton">
+    <i class="fas fa-volume-up"></i>
+  </button>
+  
 
   <script>
     const targetDate = new Date("2025-05-14").getTime();
@@ -81,7 +85,36 @@
   
     setInterval(createStar, 300);
   </script>
-  
+    <!-- سكربت تشغيل الفيديو والصوت بعد تفاعل -->
+  <script>
+    const video = document.getElementById('myVideo');
+    const audio = document.getElementById('myAudio');
+
+    function enableMedia() {
+      video.play().catch(err => console.error('Video Play Error:', err));
+      audio.play().catch(err => console.error('Audio Play Error:', err));
+      document.removeEventListener('click', enableMedia);
+      document.removeEventListener('touchstart', enableMedia);
+    }
+
+    document.addEventListener('click', enableMedia);
+    document.addEventListener('touchstart', enableMedia);
+  </script>
+
+  <!-- سكربت زر الصوت -->
+  <script>
+    const soundButton = document.getElementById('soundButton');
+
+    soundButton.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        soundButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+      } else {
+        audio.pause();
+        soundButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+      }
+    });
+  </script>
   
 </body>
 </html>
